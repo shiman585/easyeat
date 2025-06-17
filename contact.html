@@ -13,7 +13,7 @@
             font-family: 'Arial', sans-serif;
         }
         .navbar {
-            background-color: black !important;
+            background-color: red !important;
         }
         .navbar-brand img {
             height: 60px;
@@ -54,7 +54,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .footer {
-            background-color: black;
+            background-color:red;
             color: white;
             padding: 2rem 0;
         }
@@ -97,6 +97,19 @@
             text-align: center;
             margin-top: 20px;
         }
+        .login{
+            background-color: black;
+            color: white;
+            height: 43px;
+            width: 70px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .login:hover{
+            transition: .5s;
+            background-color: #ffc107;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -130,7 +143,7 @@
                         <a class="nav-link" href="showall.html">Show All</a>
                     </li>
                 </ul>
-                <a href="login.html"><button class="btn btn-outline-light">Login</button></a>
+                <a href="login.html"><button class="login" class="btn btn-outline-light">Login</button></a>
             </div>
         </div>
     </nav>
@@ -239,9 +252,9 @@
         </div>
     </div>
 
-    <hr style="color: gold;">
     <!-- Footer -->
     <footer class="footer">
+        <hr style="color: gold;">
         <div class="container text-center">
             <div class="social-icons mb-3">
                 <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>

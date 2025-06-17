@@ -236,7 +236,7 @@
         
         /* Footer */
          .footer {
-      background-color: black;
+      background-color: red;
       color: white;
       padding: 2rem 0;
       position: relative;
@@ -273,11 +273,24 @@
             0%, 100% { opacity: 0; transform: translateY(20px); }
             10%, 90% { opacity: 1; transform: translateY(0); }
         }
+         .login{
+            background-color: black;
+            color: white;
+            height: 43px;
+            width: 70px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .login:hover{
+            transition: .5s;
+            background-color: #ffc107;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 2; background-color: black;">
+    <nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 2; background-color: red;">
         <div class="container-fluid">
             <div style="padding-right: 50px;" class="img">
                 <img src="IMAGES/LOGO.png" alt="Logo" height="60px">
@@ -296,7 +309,7 @@
               <a class="nav-link" href="showall.html">Show All</a>
             </li>
           </ul>
-                <a href="login.html"><button class="btns btn-outline-light m-2">Login</button></a>
+                <a href="login.html"><button class="login" class="btns btn-outline-light m-2">Login</button></a>
                 <!-- Cart Icon -->
                 <div class="cart-icon" id="cartIcon">
                     <i class="fas fa-shopping-cart"></i>
@@ -340,8 +353,8 @@
     <div class="notification" id="notification">Item added to cart!</div>
 
     <!-- Footer Start -->
-     <hr style="color: #ffc107;">
     <footer class="footer">
+        <hr style="color: #ffc107;">
         <div class="container text-center">
             <div class="social-icons mb-3">
                 <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>

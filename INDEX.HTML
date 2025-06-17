@@ -71,7 +71,7 @@
     .footer {
       background-color: black;
       color: white;
-      padding: 2rem 0;
+       height: 200px;
     }
     .footer a {
       color: white;
@@ -244,14 +244,13 @@
         
         /* Footer */
          .footer {
-      background-color: black;
+      background-color: red;
       color: white;
-      padding: 2rem 0;
+      padding: 3rem 0;
       position: relative;
       top: 100px;
     }
     .footer a {
-      color: white;
       transition: all 0.3s ease;
     }
     .footer a:hover {
@@ -281,15 +280,28 @@
             0%, 100% { opacity: 0; transform: translateY(20px); }
             10%, 90% { opacity: 1; transform: translateY(0); }
         }
+         .login{
+            background-color: black;
+            color: white;
+            height: 43px;
+            width: 70px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .login:hover{
+            transition: .5s;
+            background-color: #ffc107;
+            color: white;
+        }
   </style>
   <body style="background-color: black;">
     <!-- Keywords for SEO: online fast food, fast food delivery, order fast food, best fast food, quick food delivery -->
     <div style="height: 20px;" class="marque" content="easyeat" >
-      <marquee style="background-color: black;color: white;font-family: 'Franklin Gothic Medium', 'Arialc Narrow', Arial, sans-serif;padding-bottom: 10px;word-spacing: 10px;" behavior="scroll" direction="right">🎉 Free Delivery To All Over America 🎉</marquee>
+      <marquee style="background-color: red;color: white;font-family: 'Franklin Gothic Medium', 'Arialc Narrow', Arial, sans-serif;padding-bottom: 10px;word-spacing: 10px;" behavior="scroll" direction="right">🎉 Free Delivery To All Over America 🎉</marquee>
     </div>
 
     <!-- nav start -->
-    <nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: black;">
+    <nav  class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: red;">
       <div class="container-fluid">
         <!-- Keywords for navigation: easy navigation, fast food delivery options -->
         <div style="padding-right: 50px;" class="img"><img src="IMAGES/LOGO.png" alt="" height="60px" content="online fast food"></div>
@@ -309,7 +321,7 @@
           </ul>
           
           <!-- Cart Icon -->
-          <div style="position: relative;left: 80px;" class="cart-icon" id="cartIcon">
+          <div  class="cart-icon" id="cartIcon">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count" id="cartCount">0</span>
           </div>
@@ -334,7 +346,7 @@
     <div class="notification" id="notification">Item added to cart!</div>
 
 
-          <a style="position: relative;left: -40px;" href="login.html"><button class="btn btn-outline-light m-2">Login</button></a>
+          <a  href="login.html"><button class="login" class="btn btn-outline-light m-2">Login</button></a>
         </div>
       </div>
     </nav>
@@ -402,10 +414,10 @@
       </div>
     </div>
     <!-- information section end -->
-<hr style="color: gold;">
     <!-- Footer -->
     <footer class="footer">
       <div class="container text-center">
+        <hr style="color: gold;">
           <div class="social-icons mb-3">
               <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
               <a href="https://www.google.com/" target="_blank"><i class="fab fa-google"></i></a>

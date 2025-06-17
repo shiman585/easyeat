@@ -108,7 +108,7 @@
 
   /* Responsive footer */
   .footer {
-            background-color: black;
+            background-color: red;
             color: white;
             padding: 2rem 0;
         }
@@ -123,10 +123,23 @@
             margin: 0 0.5rem;
             font-size: 1.5rem;
         }
+         .login{
+            background-color: black;
+            color: white;
+            height: 43px;
+            width: 70px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .login:hover{
+            transition: .5s;
+            background-color: #ffc107;
+            color: white;
+        }
 </style>
 <body style="background-color:black;">
     <!-- nav start -->
-    <nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: black;">
+    <nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: red;">
         <div class="container-fluid">
           <div style="padding-right: 50px;" class="img"><img src="IMAGES/LOGO.png" alt="" height="60px"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -143,7 +156,7 @@
                 <a class="nav-link" href="showall.html">Show All</a>
             </li>
             </ul>
-            <a href="login.html"><button class="btn btn-outline-light m-2">Login</button></a>
+            <a href="login.html"><button class="login" class="btn btn-outline-light m-2">Login</button></a>
           </div>
         </div>
       </nav>
@@ -186,8 +199,9 @@
     <!-- gallery section end -->
 
     <!-- Footer -->
-     <hr style="color: #ffc107;">
-    <footer class="footer">
+     
+    <footer  class="footer">
+      <hr style="color: #ffc107;">
       <div class="container text-center">
           <div class="social-icons mb-3">
               <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
