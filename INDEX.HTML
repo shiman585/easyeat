@@ -429,21 +429,20 @@
       </div>
     </footer>
 <script>
-  // Data array
-  let data = [
-    { "img": "IMAGES/1.png", "title": "FUNGI PIZZA", "des": "PRICE $20", "btn": "Add To Cart" },
-    { "img": "IMAGES/2.png", "title": "MARINARA PIZZA", "des": "PRICE $30", "btn": "Add To Cart" },
-    { "img": "IMAGES/3.png", "title": "MARGHERITA PIZZA", "des": "PRICE $15", "btn": "Add To Cart" },
-    { "img": "IMAGES/4.png", "title": "HAMBURGER", "des": "PRICE $25", "btn": "Add To Cart" },
-    { "img": "IMAGES/5.png", "title": "MARGHERITA PIZZA", "des": "PRICE $19", "btn": "Add To Cart" },
-    { "img": "IMAGES/6.png", "title": "MILANESE PIZZA", "des": "PRICE $25", "btn": "Add To Cart" },
-    { "img": "IMAGES/7.png", "title": "BLACK HAMBURGER", "des": "PRICE $25", "btn": "Add To Cart" },
-    { "img": "IMAGES/8.png", "title": "MUSH BURGER", "des": "PRICE $16", "btn": "Add To Cart" },
-    { "img": "IMAGES/9.png", "title": "PEPPERONI PIZZA", "des": "PRICE $20", "btn": "Add To Cart" }
+  // Product Data
+  const data = [
+    { img: "IMAGES/1.png", title: "FUNGI PIZZA", des: "PRICE $20" },
+    { img: "IMAGES/2.png", title: "MARINARA PIZZA", des: "PRICE $30" },
+    { img: "IMAGES/3.png", title: "MARGHERITA PIZZA", des: "PRICE $15" },
+    { img: "IMAGES/4.png", title: "HAMBURGER", des: "PRICE $25" },
+    { img: "IMAGES/5.png", title: "MARGHERITA PIZZA", des: "PRICE $19" },
+    { img: "IMAGES/6.png", title: "MILANESE PIZZA", des: "PRICE $25" },
+    { img: "IMAGES/7.png", title: "BLACK HAMBURGER", des: "PRICE $25" },
+    { img: "IMAGES/8.png", title: "MUSH BURGER", des: "PRICE $16" },
+    { img: "IMAGES/9.png", title: "PEPPERONI PIZZA", des: "PRICE $20" }
   ];
 
-  // Cart functionality
-  let cart = [];
+  // DOM Elements
   const cartIcon = document.getElementById('cartIcon');
   const cartModal = document.getElementById('cartModal');
   const closeCart = document.getElementById('closeCart');
@@ -453,13 +452,19 @@
   const notification = document.getElementById('notification');
   const container = document.getElementById('dataa');
 
-  // Initialize cart from localStorage
-  function initCart() {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      cart = JSON.parse(savedCart);
-      updateCartUI();
-    }
+  let cart = [];
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    loadCart();
+    generateProductCards();
+    updateCartUI();
+  });
+
+  // Load cart from localStorage
+  function loadCart() {
+    const saved = localStorage.getItem('cart');
+    if (saved) cart = JSON.parse(saved);
   }
 
   // Save cart to localStorage
@@ -467,96 +472,93 @@
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  // Extract price from description
+  // Extract price from "PRICE $xx"
   function getPrice(des) {
     const match = des.match(/\$(\d+)/);
     return match ? parseFloat(match[1]) : 0;
   }
 
   // Add item to cart
-  function addToCart(productId) {
-    const product = data[productId];
-    const price = getPrice(product.des);
-    
-    const existingItem = cart.find(item => item.id === productId);
-    
-    if (existingItem) {
-      existingItem.quantity += 1;
+  function addToCart(index) {
+    const product = data[index];
+    const existing = cart.find(item => item.id === index);
+
+    if (existing) {
+      existing.quantity += 1;
     } else {
       cart.push({
-        id: productId,
+        id: index,
         title: product.title,
-        price: price,
+        price: getPrice(product.des),
         img: product.img,
         quantity: 1
       });
     }
-    
+
     saveCart();
     updateCartUI();
-    showNotification(`${product.title} added to cart`);
+    showNotification(`✅ ${product.title} added to cart`);
   }
 
   // Update cart UI
   function updateCartUI() {
-    // Update cart count
-    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCount.textContent = totalItems;
-
-    // Update cart items
     cartItems.innerHTML = '';
+    let total = 0;
+    let count = 0;
 
     if (cart.length === 0) {
-      cartItems.innerHTML = '<div class="empty-cart"><i class="fas fa-shopping-cart fa-3x mb-3"></i><h4>Your cart is empty</h4><p>Add some delicious items!</p></div>';
+      cartItems.innerHTML = `<div class="empty-cart">
+        <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+        <h4>Your cart is empty</h4><p>Add some delicious items!</p></div>`;
       cartTotal.textContent = '$0.00';
+      cartCount.textContent = '0';
       return;
     }
-
-    let total = 0;
 
     cart.forEach(item => {
       const itemTotal = item.price * item.quantity;
       total += itemTotal;
+      count += item.quantity;
 
-      const cartItem = document.createElement('div');
-      cartItem.className = 'cart-item';
-      cartItem.innerHTML = `
-        <img src="${item.img}" alt="${item.title}" class="cart-item-img">
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <img src="${item.img}" class="cart-item-img" alt="${item.title}">
         <div class="cart-item-details">
           <div class="cart-item-title">${item.title}</div>
           <div class="cart-item-price">$${item.price.toFixed(2)}</div>
           <div class="cart-item-quantity">
-            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1); event.stopPropagation();">-</button>
-            <span class="quantity-value">${item.quantity}</span>
-            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1); event.stopPropagation();">+</button>
+            <button onclick="updateQuantity(${item.id}, -1)">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="updateQuantity(${item.id}, 1)">+</button>
           </div>
-          <button class="remove-item" onclick="removeItem(${item.id}); event.stopPropagation();">Remove</button>
+          <button class="remove-item" onclick="removeItem(${item.id})">Remove</button>
         </div>
         <div class="cart-item-total">$${itemTotal.toFixed(2)}</div>
       `;
-      cartItems.appendChild(cartItem);
+      cartItems.appendChild(div);
     });
 
+    cartCount.textContent = count;
     cartTotal.textContent = `$${total.toFixed(2)}`;
   }
 
-  // Update item quantity
-  function updateQuantity(productId, change) {
-    const item = cart.find(item => item.id === productId);
+  // Update quantity
+  function updateQuantity(id, change) {
+    const item = cart.find(i => i.id === id);
     if (item) {
       item.quantity += change;
-      if (item.quantity <= 0) {
-        removeItem(productId);
-      } else {
+      if (item.quantity <= 0) removeItem(id);
+      else {
         saveCart();
         updateCartUI();
       }
     }
   }
 
-  // Remove item from cart
-  function removeItem(productId) {
-    cart = cart.filter(item => item.id !== productId);
+  // Remove item
+  function removeItem(id) {
+    cart = cart.filter(i => i.id !== id);
     saveCart();
     updateCartUI();
   }
@@ -570,6 +572,24 @@
     }, 3000);
   }
 
+  // Generate product cards
+  function generateProductCards() {
+    container.innerHTML = '';
+    data.forEach((item, index) => {
+      container.innerHTML += `
+        <div class="col-md-4 col-sm-6 mb-4">
+          <div class="card" style="background-color: black;">
+            <img src="${item.img}" class="card-img-top" alt="${item.title}">
+            <div class="card-body">
+              <h5 class="card-title">${item.title}</h5>
+              <p class="card-text">${item.des}</p>
+              <button class="btn btn-dark" onclick="addToCart(${index})">Add To Cart</button>
+            </div>
+          </div>
+        </div>`;
+    });
+  }
+
   // Toggle cart modal
   cartIcon.addEventListener('click', () => {
     cartModal.classList.toggle('active');
@@ -579,45 +599,20 @@
     cartModal.classList.remove('active');
   });
 
-  // Close cart when clicking outside
-  document.addEventListener('click', (event) => {
-    if (!cartModal.contains(event.target) &&
-        !cartIcon.contains(event.target) &&
+  document.addEventListener('click', e => {
+    if (!cartModal.contains(e.target) &&
+        !cartIcon.contains(e.target) &&
         cartModal.classList.contains('active')) {
       cartModal.classList.remove('active');
     }
   });
 
-  // Generate product cards
-  function generateProductCards() {
-    container.innerHTML = '';
-    for (let a = 0; a < data.length; a++) {
-      container.innerHTML += `
-        <div class="col-md-4 col-sm-6 mb-4">
-          <div class="card" style="background-color: black;">
-            <img src="${data[a].img}" >
-            <div class="card-body">
-              <h5 class="card-title">${data[a].title}</h5>
-              <p class="card-text">${data[a].des}</p>
-              <button class="btn btn-dark" onclick="addToCart(${a})">${data[a].btn}</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-  }
-
-  // Initialize the page
-  document.addEventListener('DOMContentLoaded', () => {
-    initCart();
-    generateProductCards();
-  });
-
-  // Make functions global
+  // Make global
   window.addToCart = addToCart;
   window.updateQuantity = updateQuantity;
   window.removeItem = removeItem;
 </script>
+
 
 
 <!-- Scripts -->
