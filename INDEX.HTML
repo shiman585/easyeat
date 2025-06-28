@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <style>
+    /* NAVBAR START  */
     .a a:hover {
       text-transform: uppercase;
     }
@@ -30,220 +31,251 @@
       color: #ffc107 !important;
       text-transform: uppercase;
     }
-    .card {
-            border: 3px solid white;
-            border-radius: 15px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            margin-top: 30px;
-            height: 550px;
-            box-shadow: 0 0 10px 1px black;
-            text-align: center;
-            padding-top: 30px;
-            color: white;
-        }
+    /* NAVBAR END */
 
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px 2px yellow;
+
+    /* CARDS START */
+    .card {
+       border: 3px solid white;
+       border-radius: 15px;
+       transition: transform 0.2s, box-shadow 0.2s;
+       cursor: pointer;
+       margin-top: 30px;
+       height: 550px;
+       ox-shadow: 0 0 10px 1px black;
+       text-align: center;
+       padding-top: 30px;
+       color: white;
         }
-        
-        .btn {
-            background-color: black;
-            color: white;
-             border: 1px solid white;
+    .card:hover {
+       transform: scale(1.05);
+       box-shadow: 0 0 25px 2px yellow;
         }
-        .btn:hover{
-            background-color: yellow;
-            color: black;
-            border: 1px solid black;
+    .btn {
+       background-color: black;
+       color: white;
+       border: 1px solid white;
         }
-        
-        .btns {
-            background-color: black;
-            color: white;
-            height: 40px;
-            width: 70px;
-            border: 1px solid white;
-            border-radius: 10px;
+    .btn:hover{
+       background-color: yellow;
+       color: black;
+       border: 1px solid black;
         }
-    /* footer */
-    .footer {
-      background-color: black;
-      color: white;
-       height: 200px;
-    }
-    .footer a {
-      color: white;
-      transition: all 0.3s ease;
-    }
-    .footer a:hover {
-      color: #ffc107;
-    }
-    .social-icons a {
-      margin: 0 0.5rem;
-      font-size: 1.5rem;
-    }
-    /* Cart Icon */
-        .cart-icon {
-            position: relative;
-            margin-left: 15px;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+    .btns {
+       background-color: black;
+       color: white;
+       height: 40px;
+       width: 70px;
+       border: 1px solid white;
+       border-radius: 10px;
         }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background-color: #ffc107;
-            color: black;
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 0.75rem;
-            font-weight: bold;
+    /* CARDS END */
+   
+
+    /* LOGIN BUTTON START */
+    .login{
+       background-color: black;
+       color: white;
+       height: 43px;
+       width: 70px;
+       border: 1px solid white;
+       border-radius: 5px;
         }
-        
+    .login:hover{
+       transition: .5s;
+       background-color: #ffc107;
+       color: white;
+        }
+    /* LOGIN BUTTON END */
+
+
+    /* CART BUTTON FUNCATION START */
+     .cart-icon {
+       position: relative;
+       margin-left: 15px;
+       color: white;
+       font-size: 1.5rem;
+       cursor: pointer;
+        }
+      .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -10px;
+        background-color: #ffc107;
+        color: black;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.75rem;
+        font-weight: bold;     
+        }
         /* Cart Modal */
         .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            max-width: 450px;
-            height: 100vh;
-            background-color: white;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-            overflow-y: auto;
-            padding: 20px;
-            transition: transform 0.3s ease;
+         display: none;
+         position: fixed;
+         top: 0;
+         right: 0;
+         width: 100%;
+         max-width: 450px;
+         height: 100vh;
+         background-color: white;
+         box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+         z-index: 1000;
+         overflow-y: auto;
+         padding: 20px;
+         transition: transform 0.3s ease;
         }
-        
         .cart-modal.active {
-            display: block;
-            transform: translateX(0);
+         display: block;
+         transform: translateX(0);
         }
-        
         .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eee;
-            margin-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #eee;
+        margin-bottom: 20px;
         }
-        
         .close-cart {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #000;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #000;
         }
-        
         .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
         }
-        
         .cart-item-img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-right: 15px;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-right: 15px;
         }
-        
         .cart-item-details {
-            flex: 1;
+        flex: 1;
         }
-        
         .cart-item-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        
+        font-weight: bold;
+        margin-bottom: 5px;
+        } 
         .cart-item-price {
-            color: #666;
-            font-size: 0.9rem;
+        color: #666;
+        font-size: 0.9rem;
         }
-        
         .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
         }
-        
         .quantity-btn {
-            width: 30px;
-            height: 30px;
-            background-color: #000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        width: 30px;
+        height: 30px;
+        background-color: #000;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+       justify-content: center;
+         align-items: center;
         }
-        
         .quantity-value {
-            margin: 0 10px;
-            min-width: 20px;
-            text-align: center;
+         margin: 0 10px;
+        min-width: 20px;
+         text-align: center;
         }
-        
         .remove-item {
-            background: none;
-            border: none;
-            color: #ff0000;
-            cursor: pointer;
-            font-size: 0.9rem;
+         background: none;
+         border: none;
+         color: #ff0000;
+         cursor: pointer;
+         font-size: 0.9rem;
         }
-        
         .cart-total {
-            display: flex;
-            justify-content: space-between;
-            padding: 15px 0;
-            font-weight: bold;
-            font-size: 1.2rem;
-            border-top: 2px solid #eee;
-            margin-top: 10px;
+        display: flex;
+         justify-content: space-between;
+         padding: 15px 0;
+         font-weight: bold;
+         font-size: 1.2rem;
+         border-top: 2px solid #eee;
+         margin-top: 10px;
         }
-        
         .checkout-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #000;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-top: 20px;
+        width: 100%;
+         padding: 12px;
+         background-color: #000;
+         color: white;
+         border: none;
+         border-radius: 8px;
+         font-weight: bold;
+         cursor: pointer;
+         transition: background-color 0.3s;
+         margin-top: 20px;
         }
-        
         .checkout-btn:hover {
-            background-color: #333;
+        background-color: gold;
+       color: black;
         }
-        
         .empty-cart {
-            text-align: center;
-            padding: 30px 0;
+         text-align: center;
+         padding: 30px 0;
         }
-        
-        /* Footer */
-         .footer {
+       .cart-item-quantity button {
+       background-color: black;
+       color: white;
+         border: none;
+         padding: 5px 10px;
+         margin: 5px;
+         font-size: 16px;
+         cursor: pointer;
+         border-radius: 4px;     
+           }
+        /* Notification */
+        @keyframes fadeInOut {
+         0%, 100% { opacity: 0; transform: translateY(20px); }
+         10%, 90% { opacity: 1; transform: translateY(0); }
+        }
+        #notification {
+     position: fixed;
+         bottom: 20px;
+         right: 20px;
+         background-color: #000;
+         color: white;
+         padding: 12px 20px;
+         border-radius: 8px;
+         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+         display: none;
+         z-index: 2000;
+         animation: fadeInOut 3s ease-in-out;
+        }
+
+     /* Optional Fade animation */
+      #notification.show {
+  display: block;
+  opacity: 1;
+  animation: fadeOut 2.5s forwards;
+      }
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+    /* CART BUTTON FUNCATION END */
+
+
+        /* FOOTER START */
+     .footer {
       background-color: red;
       color: white;
       padding: 3rem 0;
@@ -251,6 +283,7 @@
       top: 100px;
     }
     .footer a {
+      color: white;
       transition: all 0.3s ease;
     }
     .footer a:hover {
@@ -260,61 +293,17 @@
       margin: 0 0.5rem;
       font-size: 1.5rem;
     }
+      /* FOOTER END */
         
-        /* Notification */
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #000;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: none;
-            z-index: 2000;
-            animation: fadeInOut 3s ease-in-out;
-        }
-        
-        @keyframes fadeInOut {
-            0%, 100% { opacity: 0; transform: translateY(20px); }
-            10%, 90% { opacity: 1; transform: translateY(0); }
-        }
-         .login{
-            background-color: black;
-            color: white;
-            height: 43px;
-            width: 70px;
-            border: 1px solid white;
-            border-radius: 5px;
-        }
-        .login:hover{
-            transition: .5s;
-            background-color: #ffc107;
-            color: white;
-        }
-       .cart-item-quantity button {
-  background-color: black;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  margin: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 4px;
-}
- .checkout-btn:hover {
-            background-color: gold;
-            color: black;
-        }
       
         
   </style>
   <body style="background-color: black;">
     <!-- Keywords for SEO: online fast food, fast food delivery, order fast food, best fast food, quick food delivery -->
     <div style="height: 20px;" class="marque" content="easyeat" >
-      <marquee style="background-color: red;color: white;font-family: 'Franklin Gothic Medium', 'Arialc Narrow', Arial, sans-serif;padding-bottom: 10px;word-spacing: 10px;" behavior="scroll" direction="right">🎉 Free Delivery To All Over America 🎉</marquee>
+      <marquee style="background-color: red;color: white;font-family: 'Franklin Gothic Medium', 'Arialc Narrow', Arial, sans-serif;padding-bottom: 10px;word-spacing: 10px;" behavior="scroll" direction="right">🎉 Free Delivery To All Over Uk 🎉</marquee>
     </div>
+<div id="notification"></div>
 
     <!-- nav start -->
     <nav  class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1; background-color: red;">
@@ -368,6 +357,7 @@
     </nav>
     <!-- nav end -->
 
+    
     <!-- slider start -->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" content="fast food delivery">
       <!-- Keywords for slider: best fast food, delivery banners -->
@@ -399,6 +389,7 @@
     <!-- slider end -->
 <hr style="color: gold;">
 
+
     <!-- cards data start -->
     <div  class="container" content="order fasst food">
       <div class="row m-2">
@@ -411,6 +402,7 @@
       </div>
     </div>
     <!-- cards data end -->
+
 
     <!-- information section start -->
     <div class="container" content="best fast food">
@@ -430,6 +422,8 @@
       </div>
     </div>
     <!-- information section end -->
+
+
     <!-- Footer -->
     <footer class="footer">
       <div class="container text-center">
@@ -444,6 +438,8 @@
           <p style="color: white;" class="mb-0">© 2025 Copyright: Project.com</p> 
       </div>
     </footer>
+
+    
 <script>
   // Product Data
 const data = [
@@ -526,10 +522,10 @@ function updateQuantity(id, change) {
     } else {
       saveCart();
       updateCartUI();
-    }
+    }        
   }
 }
-
+   
 // Update Cart UI
 function updateCartUI() {
   cartItems.innerHTML = '';
@@ -643,6 +639,17 @@ document.addEventListener('DOMContentLoaded', () => {
   generateProductCards();
   updateCartUI();
 });
+
+
+function showNotification(msg) {
+  notification.textContent = msg;
+  notification.classList.add('show');
+
+  // Remove after animation ends
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 2500);
+}
 
 </script>
 

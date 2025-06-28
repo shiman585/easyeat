@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <style>
+  
+  /* NAVBAR START */
   .a a:hover{
     text-transform: uppercase;
   }
@@ -20,8 +22,27 @@
             color: #ffc107 !important;
             text-transform: uppercase;
         }
+  /* NAVBAR END */
   
-  /* Gallery Heading Styles */
+
+   /* LOGIN BUTTON START */
+         .login{
+            background-color: black;
+            color: white;
+            height: 43px;
+            width: 70px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .login:hover{
+            transition: .5s;
+            background-color: #ffc107;
+            color: white;
+        }
+ /* LOGIN BUTTON END */
+
+
+  /* GALLERY IMAGE START */
   .gallery-heading {
     font-size: 50px;
     font-weight: bold;
@@ -32,7 +53,6 @@
     position: relative;
     overflow: hidden;
   }
-
   /* Animated Underline */
   .gallery-heading::after {
     content: '';
@@ -44,14 +64,12 @@
     left: -100%;
     animation: slide 3s forwards;
   }
-
   /* Animation for the text */
   .gallery-heading span {
     display: inline-block;
     opacity: 0;
     animation: fadeIn 2s forwards;
   }
-
   /* Animation for the underline sliding */
   @keyframes slide {
     0% {
@@ -61,7 +79,6 @@
       left: 0;
     }
   }
-
   /* Animation for text fade-in */
   @keyframes fadeIn {
     0% {
@@ -71,18 +88,15 @@
       opacity: 1;
     }
   }
-
   /* Adding a nice shadow to the text */
   .gallery-heading {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
   }
-
   /* Responsive Image Styles */
   .gallery-img {
     width: 100%;
     height: auto;
   }
-
   /* Ensure all images inside columns behave well */
   .gallery-column img {
     width: 100%;
@@ -91,22 +105,22 @@
     /* box-shadow: 0 10px 10px rgba(236, 4, 4, 0.1); */
     box-shadow: 0 10px 10px #c22c07;
   }
-
   /* Responsive layout for smaller screens */
   @media (max-width: 767px) {
     .gallery-heading {
       font-size: 36px;
       letter-spacing: 3px;
     }
-
     /* Stack columns vertically on smaller screens */
     .col-lg-4, .col-md-12 {
       width: 100% !important;
       padding: 10px;
     }
   }
+  /* GALLERY IMAGE END */
 
-  /* Responsive footer */
+
+  /* FOOTER START */
   .footer {
             background-color: red;
             color: white;
@@ -123,19 +137,10 @@
             margin: 0 0.5rem;
             font-size: 1.5rem;
         }
-         .login{
-            background-color: black;
-            color: white;
-            height: 43px;
-            width: 70px;
-            border: 1px solid white;
-            border-radius: 5px;
-        }
-        .login:hover{
-            transition: .5s;
-            background-color: #ffc107;
-            color: white;
-        }
+ /* FOOTER END */
+
+
+
 </style>
 <body style="background-color:black;">
     <!-- nav start -->
@@ -161,6 +166,7 @@
         </div>
       </nav>
     <!-- nav end -->
+
 
     <!-- gallery section start -->
     <div class="container">
@@ -198,8 +204,8 @@
     </div>
     <!-- gallery section end -->
 
-    <!-- Footer -->
-     
+    
+    <!-- FOOTER START -->
     <footer  class="footer">
       <hr style="color: #ffc107;">
       <div class="container text-center">
@@ -213,6 +219,7 @@
           <p class="mb-0">© 2025 Copyright: Project.com</p>
       </div>
   </footer>
+  <!-- FOOTER END -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
-            background-color: black;
-            font-family: 'Arial', sans-serif;
-        }
+
+       /* NAVBAR START */
         .navbar {
             background-color: red !important;
         }
@@ -26,6 +24,27 @@
             color: #ffc107 !important;
             text-transform: uppercase;
         }
+        /* NAVBAR END */
+
+
+         /* LOGIN START */
+        .login{
+            background-color: black;
+            color: white;
+            height: 43px;
+            width: 70px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .login:hover{
+            transition: .5s;
+            background-color: #ffc107;
+            color: white;
+        }
+        /* LOGIN END */
+
+
+        /* CONTACT FORM START */
         .btn-outline-light:hover {
             background-color: #ffc107;
             color: black !important;
@@ -49,26 +68,18 @@
             background-color: red;
             color: white;
         }
+        /* CONTACT FORM END */
+
+
+        /* MAP START */
         .map-container iframe {
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .footer {
-            background-color:red;
-            color: white;
-            padding: 2rem 0;
-        }
-        .footer a {
-            color: white;
-            transition: all 0.3s ease;
-        }
-        .footer a:hover {
-            color: #ffc107;
-        }
-        .social-icons a {
-            margin: 0 0.5rem;
-            font-size: 1.5rem;
-        }
+        /* MAP END */
+
+
+        /* CONTACT DETAILS START */
         .contact-details {
           background: linear-gradient(120deg, black 50%, orange 50%);
             padding: 2rem;
@@ -97,22 +108,33 @@
             text-align: center;
             margin-top: 20px;
         }
-        .login{
-            background-color: black;
+        /* CONTACT DETAILS END */
+
+
+        /* FOOTER START */
+        .footer {
+            background-color:red;
             color: white;
-            height: 43px;
-            width: 70px;
-            border: 1px solid white;
-            border-radius: 5px;
+            padding: 2rem 0;
         }
-        .login:hover{
-            transition: .5s;
-            background-color: #ffc107;
+        .footer a {
             color: white;
+            transition: all 0.3s ease;
         }
+        .footer a:hover {
+            color: #ffc107;
+        }
+        .social-icons a {
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        /* FOOTER END */
+        
+
+       
     </style>
 </head>
-<body>
+<body style="background-color: black;">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark position-sticky top-0" style="z-index: 1;">
         <div class="container-fluid">
@@ -148,6 +170,7 @@
         </div>
     </nav>
 
+    
     <!-- Contact Us Section -->
     <div class="container my-5">
         <div  class="row text-white text-center py-5 mb-4">
@@ -266,6 +289,8 @@
             <p class="mb-0">© 2025 Copyright: Project.com</p>
         </div>
     </footer>
+
+
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent form submission
